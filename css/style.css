@@ -1,0 +1,108 @@
+/* Empty. Add your own CSS if you like */
+
+body {
+	color: #fff;
+}
+
+.bar.bar-dark {
+    border-color: #111;
+    background-color: #000000;
+    background-image: linear-gradient(0deg, #000, #FFF 50%, transparent 50%);
+    color: #fff; 
+}
+
+.item {
+	border-left: none;
+	border-right: none;
+	background-color: rgba(0,0,0,0);	
+}
+
+.scroll-content{
+	background-color: #000;
+	background-image:url(../img/back.png);
+	background-repeat: no-repeat;
+	background-position: top;
+}
+
+.listLeft {
+	margin: 0;
+	float: left;	
+	width: 300px;
+}
+
+.listRight {
+	margin: 0;
+	float: right;	
+}
+
+.listTop {
+	
+	color: #fff;
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+
+.listBottom {
+	color: #f1e9c1;
+	font-size: 13px !important;
+	float: left;
+	margin: 0px;
+}
+
+.textLeft {
+	font-size: 18px !important;	
+}
+
+.textRight {
+	float: right;
+	font-size: 18px !important;	
+}
+
+.thumb {
+	float: left;
+	margin-right: 30px;
+	vertical-align: text-top;	
+}
+
+.item {
+	padding: 5px;
+}
+
+.item h2 {
+	margin-bottom: 0px;	
+}
+
+.item-checkbox {
+	border: none;	
+}
+
+.checkbox-icon {
+	float: right;
+	width: 45px;
+	height: 45px;
+}
+
+.bar .title {
+	font-size: 22px;	
+}
+
+#details {
+	padding: 0px 40px 0px 40px;	
+	font-weight: bold !important;
+}
+
+#detailImg {
+	margin: 0 auto;
+	text-align: center;
+	
+}
+
+#detailImg img{
+	width: 250px;
+}
+
+.back {
+	font-size: 20px !important;
+	font-weight: 400 !important;	
+}
