@@ -29,7 +29,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 
 app.controller('appController', ['$scope', '$http', function ($scope, $http) {
-	$http.get('includes/getlist.php')
+	$http.get('compendium.json')
     .success(function(data) {
         $scope.contents = data;
     });
