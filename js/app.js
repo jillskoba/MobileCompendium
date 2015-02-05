@@ -36,7 +36,7 @@ app.controller('appController', ['$scope', '$http', function ($scope, $http) {
 }]);
 
 app.controller('detailsController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams) {
-	$http.get('includes/getlist.php')
+	$http.get('compendium.json')
     .success(function(data) {
         //$scope.contents = data;
 		//$scope.dragonId = $stateParams.itemId;
