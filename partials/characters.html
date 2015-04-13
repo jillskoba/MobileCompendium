@@ -1,0 +1,87 @@
+<ion-nav-bar class="bar-dark">
+	<ion-nav-title>Characters</ion-nav-title>
+	<ion-nav-buttons side="left">
+		<button class="button" ng-click="openDeleteCharModal()">Delete</button>
+	</ion-nav-buttons>
+	<ion-nav-buttons side="right">
+		<button class="button" ng-click="openAddCharModal()">Add</button>
+	</ion-nav-buttons>
+</ion-nav-bar>
+<ion-view>
+	<ion-content padding="true">
+	<br><br><br>
+		<ion-radio class="characterSelect" ng-repeat="content in contents" ng-click="selectCharacter({{content.character_id}})" ng-model="data.characterSelection" ng-value="content.character_id" ng-class-odd="'odd'" ng-class-even="'even'">
+			<div class="nameSpread">{{content.character_name}}</div>
+			<div class="serverSpread">{{content.server_name}}</div>
+		</ion-radio>
+	</ion-content>
+</ion-view>
+	<nav class="tabs tabs-icon-top tabs-dark">
+		<a class="tab-item" ui-sref="home" data-ui-sref-opts="{reload: true}">
+			<i class="homeIcon"></i><br>Home
+		</a>
+		<a class="tab-item" ui-sref="dragonsFamily" data-ui-sref-opts="{reload: true}">
+			<i class="dragonIcon"></i><br>Dragons
+		</a>
+		<a class="tab-item" ui-sref="characters" data-ui-sref-opts="{reload: true}">
+			<i class="characterIcon"></i><br>Characters
+		</a>
+		<a class="tab-item" ui-sref="settings" data-ui-sref-opts="{reload: true}">
+			<i class="settingsIcon"></i><br>Settings
+		</a>
+	</nav>
+
+<!--- Add Character --->
+<script id="add-char.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-nav-bar class="bar-dark">
+	<ion-nav-title>Create Character</ion-nav-title>
+        <ion-nav-buttons side="left">
+            <button ng-click="closeAddCharModal()" class="button button-dark">Cancel</button>
+	</ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+    <br><br><br>
+    <div class="modalContent">
+        <form name="createChar">
+            <div class="list list-inset regForm">
+                <label class="item item-input">
+                    <input type="text" id="charName" ng-model="character.name" placeholder="Character Name">
+                </label>
+                <div class="item item-input item-select">
+                    <div class="input-label">Server</div>
+                        <select ng-model="character.server">
+                            <option value="1">Lysaia</option>
+                            <option value="2">Kronos</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="padding submitButton">
+                    <button ng-click="addCharacter()" class="button button-block button-positive button-padded">Submit</button>
+                </div>
+            </form>
+        </div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<!--- Delete Character --->
+<script id="delete-char.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-nav-bar class="bar-dark">
+	<ion-nav-title>Delete Character</ion-nav-title>
+        <ion-nav-buttons side="left">
+            <button ng-click="closeDeleteCharModal()" class="button button-dark">Cancel</button>
+	</ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+    <br><br><br>
+    <h3 class="center">Tap to delete a character</h3>
+    <br>
+        <ion-list class="characterSelect" ng-repeat="content in contents">
+            <ion-item ng-click="deleteCharacter({{content.character_id}})" class="settingsItem"  ng-class-odd="'odd'" ng-class-even="'even'"><div class="nameSpread">{{content.character_name}}</div>
+                <div class="serverSpread">{{content.server_name}}</div></ion-item>
+	</ion-list>
+    </ion-content>
+  </ion-modal-view>
+</script>

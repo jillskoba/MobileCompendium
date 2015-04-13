@@ -1,12 +1,139 @@
-<ion-nav-bar class="bar-dark bar-positive">
-	<a href="index.html"><button class="back button button-clear">Back</button></a>
+<ion-nav-bar class="bar-dark">
+	<ion-nav-title>{{dragon.dragon_name}}</ion-nav-title>
+	<ion-nav-buttons side="left">
+		<a class="button" ui-sref="dragonsFamily" href="#/dragonsFamily">Back</a>
+	</ion-nav-buttons>
 </ion-nav-bar>
-<ion-view title="{{content[whichDragon].dragon_name}}" animation="slide-in-up">
-	<ion-content padding="true" id="details">    
-        <div id="detailImg"><img data-ng-src="img/{{content[whichDragon].dragon_img}}" alt="{{content[whichDragon].dragon_name}}" /></div><br><br>
-		<span class="textLeft">Family:</span><span class="textRight">{{content[whichDragon].dragon_family}}</span><br>
-        <span class="textLeft">Location:</span><span class="textRight">{{content[whichDragon].dragon_location}}</span><br>
-        <span class="textLeft">Level:</span><span class="textRight">{{content[whichDragon].dragon_level}}</span><br><br>
-        <p>"{{content[whichDragon].dragon_desc}}"</p>
+	<ion-content padding="true" id="details">
+	<br><br>
+        <div id="detailImg"><img data-ng-src="img/dragons/{{dragon.family_id}}/{{dragon.dragon_img}}.jpg" alt="{{dragon.dragon_name}}"/></div><br><br>
+		<span class="textLeft">Family:</span><span class="textRight">{{dragon.family_name}}</span><br>
+		<span class="textLeft">Run Speed:</span><span class="textRight">{{dragon.family_runspd}}%</span><br>
+		<span class="textLeft">Flight Speed:</span><span class="textRight">{{dragon.family_flightspd}}%</span><br>
+		<span class="textLeft">Glide Speed:</span><span class="textRight">{{dragon.family_gldspd}}%</span><br>
+		<span class="textLeft">Swim Speed:</span><span class="textRight">{{dragon.family_swimspd}}%</span><br>
+        <span class="textLeft">Level:</span><span class="textRight">{{dragon.dragon_lv}}</span><br><br>
+        <p id="description">"{{dragon.dragon_desc}}"</p>
+        <div id="detailButtonContainer">
+			<button ng-click="openWildModal()" ng-style="wildBut" class="button detailButton ion-ios-world-outline"></button>
+			<button ng-click="openMarketModal()" ng-style="marketBut" class="button detailButton ion-social-usd"></button>
+			<button ng-click="openSpecialModal()" ng-style="specialBut" class="button detailButton ion-star"></button>
+			<button ng-click="openEggModal()" ng-style="eggBut" class="button detailButton ion-egg"></button>
+		</div>
+		
 	</ion-content>
 </ion-view>
+	<nav class="tabs tabs-icon-top tabs-dark">
+		<a class="tab-item" ui-sref="home" data-ui-sref-opts="{reload: true}">
+			<i class="homeIcon"></i><br>Home
+		</a>
+		<a class="tab-item" ui-sref="dragonsFamily" data-ui-sref-opts="{reload: true}">
+			<i class="dragonIcon"></i><br>Dragons
+		</a>
+		<a class="tab-item" ui-sref="characters" data-ui-sref-opts="{reload: true}">
+			<i class="characterIcon"></i><br>Characters
+		</a>
+		<a class="tab-item" ui-sref="settings" data-ui-sref-opts="{reload: true}">
+			<i class="settingsIcon"></i><br>Settings
+		</a>
+	</nav>
+	
+<!--- Wild Dragons --->
+<script id="wild-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-nav-bar class="bar-dark">
+	<ion-nav-title>Wild Dragon Locations</ion-nav-title>
+	<ion-nav-buttons side="left">
+		<button ng-click="closeWildModal()" class="button button-dark">Done</button>
+	</ion-nav-buttons>
+</ion-nav-bar>
+    <ion-content>
+		<br><br><br>
+		<div class="modalContent">
+			<ion-list>
+				<ion-item class="itemHeading">
+					<span class="textLeftTitle white bold">Zone</span><span class="textRightTitle white bold">Region</span>
+				</ion-item>
+				<ion-item ng-repeat="zone in dragon.zones | filter:{zone_name:'!Dragon Egg'} | filter:{zone_name:'!Marketplace'} | filter:{zone_name:'!Special'}" class="settingsItem"  ng-class-odd="'odd'" ng-class-even="'even'">
+					<span class="textLeft white">{{zone.zone_name}}</span><span class="textRight white">{{zone.field_name}}</span>
+				</ion-item>
+			</ion-list>
+		</div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<!--- Marketplace Dragons --->
+<script id="market-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-nav-bar class="bar-dark">
+	<ion-nav-title>Marketplace</ion-nav-title>
+	<ion-nav-buttons side="left">
+		<button ng-click="closeMarketModal()" class="button button-dark">Done</button>
+	</ion-nav-buttons>
+</ion-nav-bar>
+    <ion-content>
+		<br><br><br>
+		<div class="modalContent">
+			<ion-list>
+				<ion-item class="itemHeading">
+					<span class="textLeftTitle white bold">Type</span>
+				</ion-item>
+				<ion-item ng-repeat="zone in dragon.zones | filter:{zone_name:'Marketplace'}" class="settingsItem"  ng-class-odd="'odd'" ng-class-even="'even'">
+					<span class="textLeft white">{{zone.field_name}}</span>
+				</ion-item>
+			</ion-list>
+		</div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<!--- Special Dragons --->
+<script id="special-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-nav-bar class="bar-dark">
+	<ion-nav-title>Wild Dragon Locations</ion-nav-title>
+	<ion-nav-buttons side="left">
+		<button ng-click="closeSpecialModal()" class="button button-dark">Done</button>
+	</ion-nav-buttons>
+</ion-nav-bar>
+    <ion-content>
+		<br><br><br>
+		<div class="modalContent">
+			<ion-list>
+				<ion-item class="itemHeading">
+					<span class="textLeftTitle white bold">Type</span>
+				</ion-item>
+				<ion-item ng-repeat="zone in dragon.zones | filter:{zone_name:'Special'}" class="settingsItem" ng-class-odd="'odd'" ng-class-even="'even'">
+					<span class="textLeft white">{{zone.field_name}}</span>
+				</ion-item>
+			</ion-list>
+		</div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<!--- Egg Dragons --->
+<script id="egg-modal.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-nav-bar class="bar-dark">
+	<ion-nav-title>Eggs</ion-nav-title>
+	<ion-nav-buttons side="left">
+		<button ng-click="closeEggModal()" class="button button-dark">Done</button>
+	</ion-nav-buttons>
+</ion-nav-bar>
+    <ion-content>
+		<br><br><br>
+		<div class="modalContent">
+			<ion-list>
+				<ion-item class="itemHeading">
+					<span class="textLeftTitle white bold">Egg Name</span>
+				</ion-item>
+				<ion-item ng-repeat="egg in dragon.eggs" class="settingsItem" ng-class-odd="'odd'" ng-class-even="'even'">
+					<span class="textLeft white">{{egg.egg_name}}</span>
+				</ion-item>
+			</ion-list>
+		</div>
+    </ion-content>
+  </ion-modal-view>
+</script>

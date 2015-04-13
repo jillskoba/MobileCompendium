@@ -1,0 +1,29 @@
+<ion-nav-bar class="bar-dark">
+	<ion-nav-title>FAQs</ion-nav-title>
+	<ion-nav-buttons side="left">
+		<a class="button" ui-sref="settingsFAQ" href="#/settingsFAQ">Back</a>
+	</ion-nav-buttons>
+</ion-nav-bar>
+<ion-nav-view animation="slide-left-right"></ion-nav-view>
+<ion-view>
+	<ion-content padding="true" id="details">
+	<div id="answerContainer">
+        <h2 class="center">{{content[whichQuestion].faq_title}}</h2><br>
+        <p class="settingsContent">{{content[whichQuestion].faq_content}}</p>
+		</div>
+	</ion-content>
+</ion-view>
+	<nav class="tabs tabs-icon-top tabs-dark">
+		<a class="tab-item" ui-sref="home" data-ui-sref-opts="{reload: true}">
+			<i class="homeIcon"></i><br>Home
+		</a>
+		<a class="tab-item" ui-sref="dragonsFamily" data-ui-sref-opts="{reload: true}">
+			<i class="dragonIcon"></i><br>Dragons
+		</a>
+		<a class="tab-item" ui-sref="characters" data-ui-sref-opts="{reload: true}">
+			<i class="characterIcon"></i><br>Characters
+		</a>
+		<a class="tab-item" ui-sref="settings" data-ui-sref-opts="{reload: true}">
+			<i class="settingsIcon"></i><br>Settings
+		</a>
+	</nav>

@@ -1,0 +1,27 @@
+<ion-nav-bar class="bar-dark">
+	<ion-nav-title>Settings</ion-nav-title>
+</ion-nav-bar>
+<ion-view>
+	<ion-content padding="true">
+	<br><br><br>
+		<ion-list>
+		  <ion-item ng-click="clearConfirm()" class="odd settingsItem">Clear All Data<i class="icon chevRight ion-chevron-right icon-accessory"></i></ion-item>
+		  <a href="#/settingsFAQ" class="clearLink"><ion-item class="even settingsItem">FAQs<i class="icon chevRight ion-chevron-right icon-accessory"></i></ion-item></a>
+		  <a href="#/settingsCredits" class="clearLink"><ion-item class="odd settingsItem">Credits<i class="icon chevRight ion-chevron-right icon-accessory"></i></ion-item></a>
+		</ion-list>
+	</ion-content>
+</ion-view>
+	<nav class="tabs tabs-icon-top tabs-dark">
+		<a class="tab-item" ui-sref="home" data-ui-sref-opts="{reload: true}">
+			<i class="homeIcon"></i><br>Home
+		</a>
+		<a class="tab-item" ui-sref="dragonsFamily" data-ui-sref-opts="{reload: true}">
+			<i class="dragonIcon"></i><br>Dragons
+		</a>
+		<a class="tab-item" ui-sref="characters" data-ui-sref-opts="{reload: true}">
+			<i class="characterIcon"></i><br>Characters
+		</a>
+		<a class="tab-item" ui-sref="settings" data-ui-sref-opts="{reload: true}">
+			<i class="settingsIcon"></i><br>Settings
+		</a>
+	</nav>

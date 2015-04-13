@@ -1,0 +1,58 @@
+<ion-view>
+	<ion-content padding="true">
+	<br><br><br>
+	<a ui-sref="home" data-ui-sref-opts="{reload: true}" class="clearLink">Home</a>
+	<img src="img/logo.png" alt="Dragon's Prophet Logo" id="logo" class="center"/><br>
+	<h3 class="center">Register</h3><br>
+	<h4 class="center">If this is your first time using the service, please create an account</h4>
+	<form name="regForm">
+	<div class="list list-inset regForm">
+			<label class="item item-input">
+				<input type="email" id="regEmail" ng-model="reg.email" placeholder="Your Email">
+			</label>
+			<label class="item item-input">
+				<input type="password" id="regPass" ng-model="reg.pass1" placeholder="New Password">
+			</label>
+			<label class="item item-input">
+				<input type="password" id="regPass2" ng-model="reg.pass2" placeholder="Confirm Password">
+			</label>
+		
+	</div>
+	<div class="padding submitButton">
+		<button ng-click="submit()" class="button button-block button-positive button-padded">Submit</button>
+	</div></form><br>
+	<h4 class="center" ng-click="loginPopup()">I already have an account!</h4>
+	<!--- <h4 class="center" ng-click="localStore()">Test Local Storage!</h4> --->
+	<!--- <h4 class="center" ng-click="openCharacterModal()">Test Character Creation</h4> --->
+	</ion-content>
+</ion-view>
+
+<!--- Character Creation --->
+<script id="createChar.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-nav-bar class="bar-dark">
+	<ion-nav-title>Create Character</ion-nav-title>
+</ion-nav-bar>
+    <ion-content>
+		<br><br><br>
+		<div class="modalContent">
+			<form name="createChar">
+				<div class="list list-inset regForm">
+					<label class="item item-input">
+						<input type="text" id="charName" ng-model="character.name" placeholder="Character Name">
+					</label>
+					<div class="item item-input item-select">
+						<div class="input-label">Server</div>
+						<select ng-model="character.server">
+							<option value="1">Lysaia</option>
+							<option value="2">Kronos</option>
+						</select>
+					</div>
+				</div>
+				<div class="padding submitButton">
+					<button ng-click="submitChar()" class="button button-block button-positive button-padded ">Submit</button>
+				</div>
+			</form>
+		</div>
+    </ion-content>
+  </ion-modal-view>

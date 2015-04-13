@@ -1,23 +1,33 @@
-<ion-view title="Home">
+<ion-nav-bar class="bar-dark">
+	<ion-nav-title>Home</ion-nav-title>
+</ion-nav-bar>
+<ion-view>
 	<ion-content padding="true">
-		<ion-list>
-			<ion-item ng-repeat="content in contents">
-			<div class="listLeft">
-			<img data-ng-src="img/{{content.dragon_thumb}}" alt="{{content.dragon_name}}" class="thumb"/>
-			<a href="#details/{{contents.indexOf(content)}}">
-				<h2 class="listTop">{{content.dragon_name}}</h2>
-			</a><br>
-			<h3 class="listBottom">{{content.dragon_family}}, {{content.dragon_location}}</h3>	
-            </div>
-            <div class="listRight">
-            <label class="toggle">
-               <input type="checkbox">
-               <div class="track">
-                <div class="handle"></div>
-               </div>
-            </label>
-            </div>
-			</ion-item>
-		</ion-list>
+	<br><br><br><br>
+		<div id="characterContainer">
+			<h2>{{foundCharacter.character_name}}</h2>
+			<h3>{{foundCharacter.server_name}} Server</h3>
+			<div id="progress">
+				<progress id="characterProgress" max="{{dragons.length}}" value="{{characterCollected}}"></progress>
+			</div>
+			<h3>Capture Progress</h3>
+			<h4>{{(characterCollected / dragonsTotal) * 100| number:0}}% Complete<br> ({{characterCollected}} / {{dragonsTotal}} Dragons)</h4>
+			<a sref="register" href="#/register" class="clearLink">Register</a>
+			
+		</div>
 	</ion-content>
 </ion-view>
+	<nav class="tabs tabs-icon-top tabs-dark">
+		<a class="tab-item" ui-sref="home" data-ui-sref-opts="{reload: true}">
+			<i class="homeIcon"></i><br>Home
+		</a>
+		<a class="tab-item" ui-sref="dragonsFamily" data-ui-sref-opts="{reload: true}">
+			<i class="dragonIcon"></i><br>Dragons
+		</a>
+		<a class="tab-item" ui-sref="characters" data-ui-sref-opts="{reload: true}">
+			<i class="characterIcon"></i><br>Characters
+		</a>
+		<a class="tab-item" ui-sref="settings" data-ui-sref-opts="{reload: true}">
+			<i class="settingsIcon"></i><br>Settings
+		</a>
+	</nav>
