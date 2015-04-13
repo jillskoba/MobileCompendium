@@ -3,7 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "Dragons Prophet Mobile Compendium"
+        id        = "Dragon's Prophet Mobile Compendium"
         version   = "1.0.0">
 
     <name>Mobile Compendium</name>
@@ -12,7 +12,7 @@
         An application designed to track and compare a player's compendium in the Dragon's Prophet PC game.
     </description>
 
-    <author href="http://fanshaweonline.ca" email="j_skoblenick@fanshaweonline.ca">
+    <author href="http://www.jillskoba.com" email="jillskoba@gmail.com">
         Jill Skoblenick
     </author>
 
@@ -38,6 +38,7 @@
     <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
     <preference name="android-minSdkVersion"      value="7" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
+	<preference name="EnableViewportScale"		  value="true" />			<!-- ios: scaling potential fix -->
 
     <!-- Enable Splash Screen Display on Android -->
     <preference name="SplashScreen" value="splash" />

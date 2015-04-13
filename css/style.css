@@ -1,4 +1,7 @@
-
+http {
+	width: 100%;
+	height: 100%;
+}
 .center {
 	text-align: center;
 }
@@ -68,7 +71,7 @@ h2, h3, h4{
 }
 
 .bar .title {
-	font-size: 22px;	
+	font-size: 1.375em;	
 }
 
 .tabs {
@@ -103,7 +106,7 @@ h2, h3, h4{
 }
 
 .bar-dark .button {
-	font-size: 18px;
+	font-size: 1.125em;
 	background-color: transparent !important;
 }
 
@@ -200,7 +203,7 @@ progress::-webkit-progress-value {
 }
 
 .listHead {
-	font-size: 24px;
+	font-size: 1.500em;
 	padding: 15px 10px !important;
 	color: #fff;
 	font-weight: bold;
@@ -493,7 +496,6 @@ progress::-webkit-progress-value {
 	  background-size: 30px;
 }
 
-
 .list .item.item-accordion {
   line-height: 38px;
   padding-top: 0;
@@ -506,4 +508,21 @@ progress::-webkit-progress-value {
 .list .item.item-accordion.ng-hide-add,
 .list .item.item-accordion.ng-hide-remove {
   display: block !important;
+}
+
+/*------------------------------------------------ CSS MEDIA QUERIES ------------------------------------------------*/
+@media only screen and (min-device-width : 540px) { /* New Droids; New HTC */
+
+}
+
+@media only screen and (min-device-width : 480px) { /* Most Android Phones, HTC, LG, Older Droids, Samsung */
+
+}
+
+@media only screen and (min-device-width : 320px) { /* iPhone 3/3G, iPhone 4/4S */
+
+}
+
+@media only screen and (min-device-width : 240px) { /* Old Android Phones,, Small Form Factor Android */
+
 }
