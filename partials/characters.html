@@ -8,8 +8,8 @@
 	</ion-nav-buttons>
 </ion-nav-bar>
 <ion-view>
-	<ion-content padding="true">
-	<br><br><br>
+	<ion-content padding="true" class="has-header">
+	<br>
 		<ion-radio class="characterSelect" ng-repeat="content in contents" ng-click="selectCharacter({{content.character_id}})" ng-model="data.characterSelection" ng-value="content.character_id" ng-class-odd="'odd'" ng-class-even="'even'">
 			<div class="nameSpread">{{content.character_name}}</div>
 			<div class="serverSpread">{{content.server_name}}</div>

@@ -2,6 +2,7 @@ http {
 	width: 100%;
 	height: 100%;
 }
+
 .center {
 	text-align: center;
 }
@@ -15,7 +16,7 @@ http {
 .listMainRight{
 	margin: 0;
 	float: left;	
-	width: 10%;
+	width: 12%;
 }
 
 .listCheck {
@@ -164,21 +165,17 @@ h2, h3, h4{
 	-webkit-box-shadow: 0px 0px 10px 3px rgba(255,255,255,0.03);
 	-moz-box-shadow: 0px 0px 10px 3px rgba(255,255,255,0.03);
 	box-shadow: 0px 0px 10px 3px rgba(255,255,255,0.03);
-	margin: 40px;
-	padding: 30px;
+	margin: 20px;
+	padding: 15px;
 }
 
 #progress {
 	margin: 50px 0px;
 }
 
-progress {
-	height: 40px !important;
-}
-
 #characterProgress {
-	width: 300px;
-    height: 18px;
+	width: 70%;
+    height: 40px;
 	-webkit-appearance: none;
 }
 
@@ -231,7 +228,7 @@ progress::-webkit-progress-value {
 
 .listBottom {
 	color: #f1e9c1;
-	font-size: 13px !important;
+	font-size: 0.813em !important;
 	float: left;
 	margin: 0px;
 	margin-bottom: 0px !important;
@@ -255,7 +252,7 @@ progress::-webkit-progress-value {
 }
 
 .charSelHead {
-	font-size: 24px;
+	font-size: 1.500em;
 	color: #fff;
 	padding: 18px 0px 18px 25px;
 }
@@ -271,28 +268,27 @@ progress::-webkit-progress-value {
 }
 
 .textLeft {
-	font-size: 18px !important;	
+	font-size: 1.125em !important;	
 }
 
 .textLeftTitle {
-	font-size: 18px !important;	
+	font-size: 1.125em !important;	
 	padding-left: 25px;
 }
 
 .textRight {
 	float: right;
-	font-size: 18px !important;	
+	font-size: 1.125em !important;	
 	padding-right: 30px;
 }
 
 .textRightTitle {
 	float: right;
-	font-size: 18px !important;	
+	font-size: 1.125em !important;	
 	padding-right: 25px;
 }
 
 #details {
-	padding: 0px 40px 0px 40px;	
 	font-weight: bold !important;
 }
 
@@ -308,7 +304,7 @@ progress::-webkit-progress-value {
 .detailButton {
 	padding: 5px;
 	margin: 0px 20px;
-	font-size: 60px !important;
+	font-size: 3.750em !important;
 	width: 70px;
 	height: 70px;
 	text-align: center;
@@ -332,7 +328,7 @@ progress::-webkit-progress-value {
 }
 
 .nameSpread {
-	min-width: 300px !important;
+	min-width: 60% !important;
 	display: inline;
 	float: left;
 }
@@ -347,7 +343,7 @@ progress::-webkit-progress-value {
 }
 
 .item-radio {
-	font-size: 24px;
+	font-size: 1.250em;
 	color: #fff;
 	border-color: rgba(255, 255, 255, 0.07) !important;
 	border-width: 2px;
@@ -366,7 +362,7 @@ progress::-webkit-progress-value {
 
 /* Settings */
 .settingsItem {
-	font-size: 24px;
+	font-size: 1.250em;
 	color: #fff;
 	padding: 18px 0px 18px 30px;
 }
@@ -378,7 +374,7 @@ progress::-webkit-progress-value {
 
 
 .settingsContent {
-	font-size: 18px;
+	font-size: 1.125em;
 	line-height: 1.25em;
 	font-weight: normal;
 }
@@ -389,7 +385,7 @@ progress::-webkit-progress-value {
 	-moz-box-shadow: 0px 0px 10px 3px rgba(255,255,255,0.03);
 	box-shadow: 0px 0px 10px 3px rgba(255,255,255,0.03);
 	margin: 20px;
-	padding: 30px;
+	padding: 20px;
 }
 
 .list {
@@ -421,7 +417,7 @@ progress::-webkit-progress-value {
 }
 
 .popup-title {
-	font-size: 24px !important;
+	font-size: 1.250em !important;
 }
 
 
@@ -508,21 +504,4 @@ progress::-webkit-progress-value {
 .list .item.item-accordion.ng-hide-add,
 .list .item.item-accordion.ng-hide-remove {
   display: block !important;
-}
-
-/*------------------------------------------------ CSS MEDIA QUERIES ------------------------------------------------*/
-@media only screen and (min-device-width : 540px) { /* New Droids; New HTC */
-
-}
-
-@media only screen and (min-device-width : 480px) { /* Most Android Phones, HTC, LG, Older Droids, Samsung */
-
-}
-
-@media only screen and (min-device-width : 320px) { /* iPhone 3/3G, iPhone 4/4S */
-
-}
-
-@media only screen and (min-device-width : 240px) { /* Old Android Phones,, Small Form Factor Android */
-
 }
