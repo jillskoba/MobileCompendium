@@ -101,11 +101,9 @@ app.value('global', {
 
 //Home
 app.controller('appController', ['$scope', '$http', '$state', 'global', function ($scope, $http, $state, global) {
-    if (window.localStorage['dragons'] == '') {
+    if (!window.localStorage['dragons']) {
         $state.go('register');
     }
-	
-	console.log(global.justLaunched);
 	
 	if (global.justLaunched) { // if the window's been loaded for the first time, push progress to server (account update in case of offline activity)
 		var request = $http({
@@ -443,7 +441,7 @@ app.controller('registerController', ['$scope', '$http', '$ionicPopup', '$ionicM
 
 //Dragon List
 app.controller('dragonsController', ['$scope', '$http', '$ionicPopup', '$ionicActionSheet', '$ionicModal', '$state', 'global', function ($scope, $http, $ionicPopup, $ionicActionSheet, $ionicModal, $state, global) {
-    if (window.localStorage['dragons'] == '') {
+    if (!window.localStorage['dragons']) {
         $state.go('register');
     }
 	
@@ -689,9 +687,9 @@ app.controller('dragonsController', ['$scope', '$http', '$ionicPopup', '$ionicAc
 
 //Dragon Details
 app.controller('detailsController', ['$scope', '$stateParams', '$ionicModal', '$state', function ($scope, $stateParams, $ionicModal, $state) {
-    if (window.localStorage['dragons'] == '') {
+    if (!window.localStorage['dragons']) {
         $state.go('register');
-    }  
+    }
         
     $scope.content = JSON.parse(window.localStorage['dragons'] || '{}');
     var dragonIdToFind = $stateParams.itemId;
@@ -867,7 +865,7 @@ app.controller('detailsController', ['$scope', '$stateParams', '$ionicModal', '$
 
 //Character
 app.controller('charactersController', ['$scope', '$state', '$ionicModal', '$ionicPopup', '$http', 'global', function ($scope, $state, $ionicModal, $ionicPopup, $http, global) {
-    if (window.localStorage['dragons'] == '') {
+    if (!window.localStorage['dragons']) {
         $state.go('register');
     }  
     $scope.contents = JSON.parse(window.localStorage['characters'] || '{}');
@@ -1039,7 +1037,7 @@ app.controller('charactersController', ['$scope', '$state', '$ionicModal', '$ion
 
 //FAQ
 app.controller('faqController', ['$scope', '$state', function ($scope, $state) {
-    if (window.localStorage['dragons'] == '') {
+    if (!window.localStorage['dragons']) {
         $state.go('register');
     }  
     $scope.contents = JSON.parse(window.localStorage['faqs'] || '{}');
@@ -1048,7 +1046,7 @@ app.controller('faqController', ['$scope', '$state', function ($scope, $state) {
 
 //FAQ Answers
 app.controller('answersController', ['$scope', '$state', '$stateParams', function ($scope, $state, $stateParams) {
-    if (window.localStorage['dragons'] == '') {
+    if (!window.localStorage['dragons']) {
         $state.go('register');
     }  
     $scope.content = JSON.parse(window.localStorage['faqs'] || '{}');
@@ -1058,7 +1056,7 @@ app.controller('answersController', ['$scope', '$state', '$stateParams', functio
 
 //Settings
 app.controller('settingsController', ['$scope', '$ionicPopup', '$state', function ($scope, $ionicPopup, $state) {
-    if (window.localStorage['dragons'] == '') {
+    if (!window.localStorage['dragons']) {
         $state.go('register');
     }  
     $scope.clearConfirm = function () {
