@@ -10,7 +10,8 @@ var app = angular.module('ionicApp', ['ionic', 'ui.router'])
         });
     });
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+	$ionicConfigProvider.navBar.alignTitle('center');
     $stateProvider
 
             //Home Tab
@@ -101,14 +102,16 @@ app.value('global', {
 
 //Home
 app.controller('appController', ['$scope', '$http', '$state', 'global', function ($scope, $http, $state, global) {
-    if (!window.localStorage['dragons']) {
+    if (window.localStorage['dragons'] == '') {
         $state.go('register');
     }
+	
+	console.log(global.justLaunched);
 	
 	if (global.justLaunched) { // if the window's been loaded for the first time, push progress to server (account update in case of offline activity)
 		var request = $http({
             method: "post",
-            url: "http://www.jillskoba.com/compendium/populate.php", //--------------------------------------------------------------------------Replace with live
+            url: "http://mobilecompendium/populate.php", //--------------------------------------------------------------------------Replace with live
             data: {
                 progress: JSON.parse(window.localStorage['progress'] || '{}')
             }
@@ -253,7 +256,7 @@ app.controller('registerController', ['$scope', '$http', '$ionicPopup', '$ionicM
        
         var request = $http({
             method: "post",
-            url: "http://www.jillskoba.com/compendium/register.php", //--------------------------------------------------------------------------Replace with live
+            url: "http://mobilecompendium/register.php", //--------------------------------------------------------------------------Replace with live
             data: {
                 email: $scope.reg.email,
                 password: $scope.reg.pass1
@@ -330,7 +333,7 @@ app.controller('registerController', ['$scope', '$http', '$ionicPopup', '$ionicM
 			
         var request = $http({
             method: "post",
-            url: "http://www.jillskoba.com/compendium/register.php", //--------------------------------------------------------------------------Replace with live
+            url: "http://mobilecompendium/register.php", //--------------------------------------------------------------------------Replace with live
             data: {
                 email: global.regEmail,
                 password: global.regPass,
@@ -395,7 +398,7 @@ app.controller('registerController', ['$scope', '$http', '$ionicPopup', '$ionicM
                     } else {
                         var request = $http({
                         method: "post",
-                        url: "http://www.jillskoba.com/compendium/login.php", //--------------------------------------------------------------------------Replace with live
+                        url: "http://mobilecompendium/login.php", //--------------------------------------------------------------------------Replace with live
                         data: {
                             email: $scope.data.email,
                             password: $scope.data.pass
@@ -441,7 +444,7 @@ app.controller('registerController', ['$scope', '$http', '$ionicPopup', '$ionicM
 
 //Dragon List
 app.controller('dragonsController', ['$scope', '$http', '$ionicPopup', '$ionicActionSheet', '$ionicModal', '$state', 'global', function ($scope, $http, $ionicPopup, $ionicActionSheet, $ionicModal, $state, global) {
-    if (!window.localStorage['dragons']) {
+    if (window.localStorage['dragons'] == '') {
         $state.go('register');
     }
 	
@@ -480,7 +483,7 @@ app.controller('dragonsController', ['$scope', '$http', '$ionicPopup', '$ionicAc
             $scope.foundDragon = foundDragon;
             var request = $http({
                 method: "post",
-                url: "http://www.jillskoba.com/compendium/update.php", //--------------------------------------------------------------------------Replace with live
+                url: "http://mobilecompendium/update.php", //--------------------------------------------------------------------------Replace with live
                 data: {
                     characterID: $scope.foundDragon.character_id,
                     dragonID: $scope.foundDragon.dragon_id,
@@ -551,7 +554,7 @@ app.controller('dragonsController', ['$scope', '$http', '$ionicPopup', '$ionicAc
                         //query database for user if connected to the internet
                         var request = $http({
                             method: "post",
-                            url: "http://www.jillskoba.com/compendium/search.php", //--------------------------------------------------------------------------Replace with live
+                            url: "http://mobilecompendium/search.php", //--------------------------------------------------------------------------Replace with live
                             data: {
                                 email: $scope.data.searchUser
                             }
@@ -587,7 +590,7 @@ app.controller('dragonsController', ['$scope', '$http', '$ionicPopup', '$ionicAc
     $scope.callCharacterProgress = function(id) {
         var request = $http({
             method: "post",
-            url: "http://www.jillskoba.com/compendium/getFriendProgress.php", //--------------------------------------------------------------------------Replace with live
+            url: "http://mobilecompendium/getFriendProgress.php", //--------------------------------------------------------------------------Replace with live
             data: {
                 characterID: id
             }
@@ -687,9 +690,9 @@ app.controller('dragonsController', ['$scope', '$http', '$ionicPopup', '$ionicAc
 
 //Dragon Details
 app.controller('detailsController', ['$scope', '$stateParams', '$ionicModal', '$state', function ($scope, $stateParams, $ionicModal, $state) {
-    if (!window.localStorage['dragons']) {
+    if (window.localStorage['dragons'] == '') {
         $state.go('register');
-    }
+    }  
         
     $scope.content = JSON.parse(window.localStorage['dragons'] || '{}');
     var dragonIdToFind = $stateParams.itemId;
@@ -865,7 +868,7 @@ app.controller('detailsController', ['$scope', '$stateParams', '$ionicModal', '$
 
 //Character
 app.controller('charactersController', ['$scope', '$state', '$ionicModal', '$ionicPopup', '$http', 'global', function ($scope, $state, $ionicModal, $ionicPopup, $http, global) {
-    if (!window.localStorage['dragons']) {
+    if (window.localStorage['dragons'] == '') {
         $state.go('register');
     }  
     $scope.contents = JSON.parse(window.localStorage['characters'] || '{}');
@@ -873,6 +876,7 @@ app.controller('charactersController', ['$scope', '$state', '$ionicModal', '$ion
         characterSelection: window.localStorage['selectedCharacter']
     };
 	
+	console.log(JSON.parse(window.localStorage['characters'] || '{}').length);
 	
 	// Change character selection on tap
     $scope.selectCharacter = function (character) {
@@ -916,10 +920,16 @@ app.controller('charactersController', ['$scope', '$state', '$ionicModal', '$ion
         $scope.showAlert();
         return;
     }
+	
+	if (JSON.parse(window.localStorage['characters'] || '{}').length == 6) {
+		$scope.errorMessage = 'You cannot have more than six characters';
+        $scope.showAlert();
+		return;
+	}
 			
     var request = $http({
         method: "post",
-        url: "http://www.jillskoba.com/compendium/addCharacter.php", //--------------------------------------------------------------------------Replace with live
+        url: "http://mobilecompendium/addCharacter.php", //--------------------------------------------------------------------------Replace with live
         data: {
             email: $scope.email,
             character: $scope.character.name,
@@ -996,7 +1006,15 @@ app.controller('charactersController', ['$scope', '$state', '$ionicModal', '$ion
 	
     //Delete Character Function
     $scope.deleteCharacter = function (characterID) {
-        // Have user confirm if they really want to delete their character & progress
+        
+		// Prevent the user from deleting their last character
+		if (JSON.parse(window.localStorage['characters'] || '{}').length == 1) {
+			$scope.errorMessage = 'You cannot have fewer than one character';
+			$scope.showAlert();
+			return;
+		}
+				
+		// Have user confirm if they really want to delete their character & progress
         var confirmPopup = $ionicPopup.confirm({
             title: 'Confirm',
             template: 'Are you sure you want to delete this character?'
@@ -1005,7 +1023,7 @@ app.controller('charactersController', ['$scope', '$state', '$ionicModal', '$ion
             if (res) {
                 var request = $http({
                 method: "post",
-                url: "http://www.jillskoba.com/compendium/deleteCharacter.php", //--------------------------------------------------------------------------Replace with live
+                url: "http://mobilecompendium/deleteCharacter.php", //--------------------------------------------------------------------------Replace with live
                 data: {
                     characterID: characterID
                     }
@@ -1037,7 +1055,7 @@ app.controller('charactersController', ['$scope', '$state', '$ionicModal', '$ion
 
 //FAQ
 app.controller('faqController', ['$scope', '$state', function ($scope, $state) {
-    if (!window.localStorage['dragons']) {
+    if (window.localStorage['dragons'] == '') {
         $state.go('register');
     }  
     $scope.contents = JSON.parse(window.localStorage['faqs'] || '{}');
@@ -1046,7 +1064,7 @@ app.controller('faqController', ['$scope', '$state', function ($scope, $state) {
 
 //FAQ Answers
 app.controller('answersController', ['$scope', '$state', '$stateParams', function ($scope, $state, $stateParams) {
-    if (!window.localStorage['dragons']) {
+    if (window.localStorage['dragons'] == '') {
         $state.go('register');
     }  
     $scope.content = JSON.parse(window.localStorage['faqs'] || '{}');
@@ -1056,7 +1074,7 @@ app.controller('answersController', ['$scope', '$state', '$stateParams', functio
 
 //Settings
 app.controller('settingsController', ['$scope', '$ionicPopup', '$state', function ($scope, $ionicPopup, $state) {
-    if (!window.localStorage['dragons']) {
+    if (window.localStorage['dragons'] == '') {
         $state.go('register');
     }  
     $scope.clearConfirm = function () {

@@ -121,6 +121,9 @@ h2, h3, h4{
 #logo {
 	margin: 0 auto;
 	text-align: center;
+	max-width: 70%;
+	height: auto;
+    width: auto\9; /* ie8 */
 }
 
 .center{
