@@ -304,7 +304,7 @@
 			</ion-checkbox>
 		</div>
 		
-		<br><br><br>
+		<ion-item id="listBottom"></ion-item>
 	</ion-content>
 </ion-view>
 	<nav class="tabs tabs-icon-top tabs-dark">
@@ -333,21 +333,15 @@
     </ion-nav-bar>
     <ion-content>
         <br><br><br>
-        <div class="modalContent">
-        
             <ion-list>
-                <ion-item class="itemHeading">
-                    <span class="nameSpread charSelHead">Character Name</span><span class="serverSpread charSelHead">Server</span>
-		</ion-item>
-                <span ng-repeat="content in characterData" class="clearLink" >
-                    <ion-item ng-click="callCharacterProgress({{content.character_id}})" ng-class="settingsItem" ng-class-odd="'odd'" ng-class-even="'even'">
+                <span ng-repeat="content in characterData"  >
+                    <ion-item ng-click="callCharacterProgress({{content.character_id}})" ng-class="settingsItem" ng-class-odd="'odd'" ng-class-even="'even'" class="friendList">
                         <div class="nameSpread">{{content.character_name}}</div>
                         <div class="serverSpread">{{content.server_name}}</div>
                         <i class="icon chevRight ion-chevron-right icon-accessory"></i>
                     </ion-item>
-		</span>
+				</span>
             </ion-list>
-        </div>
     </ion-content>
   </ion-modal-view>
 </script>

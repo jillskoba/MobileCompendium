@@ -101,10 +101,20 @@ app.value('global', {
 });
 
 //Home
-app.controller('appController', ['$scope', '$http', '$state', 'global', function ($scope, $http, $state, global) {
+app.controller('appController', ['$scope', '$http', '$state', '$ionicLoading', '$timeout', 'global', function ($scope, $http, $state, $ionicLoading, $timeout, global) {
     if (!window.localStorage['dragons']) {
         $state.go('register');
     }
+	
+	$scope.load = function() {
+		$ionicLoading.show({
+		content: 'Loading',
+		animation: 'fade-in',
+		showBackdrop: true,
+		maxWidth: 200,
+		showDelay: 0
+	  });
+	};
 	
 	if (global.justLaunched) { // if the window's been loaded for the first time, push progress to server (account update in case of offline activity)
 		var request = $http({
@@ -441,14 +451,18 @@ app.controller('registerController', ['$scope', '$http', '$ionicPopup', '$ionicM
 
 
 //Dragon List
-app.controller('dragonsController', ['$scope', '$http', '$ionicPopup', '$ionicActionSheet', '$ionicModal', '$state', 'global', function ($scope, $http, $ionicPopup, $ionicActionSheet, $ionicModal, $state, global) {
-    if (!window.localStorage['dragons']) {
+app.controller('dragonsController', ['$scope', '$http', '$ionicPopup', '$ionicActionSheet', '$ionicModal', '$state', 'global', '$ionicLoading', '$timeout', function ($scope, $http, $ionicPopup, $ionicActionSheet, $ionicModal, $state, global, $ionicLoading, $timeout) {
+    if (window.localStorage['dragons'] == '') {
         $state.go('register');
     }
 	
-	$scope.contents = JSON.parse(window.localStorage['dragons'] || '{}');
-    $scope.progressList = JSON.parse(window.localStorage['progress'] || '{}');
-    $scope.characterID = window.localStorage['selectedCharacter'];
+	  // Set a timeout to clear loader, however you would actually call the $ionicLoading.hide(); method whenever everything is ready or loaded.
+	  $timeout(function () {
+		$ionicLoading.hide();
+		$scope.contents = JSON.parse(window.localStorage['dragons'] || '{}');
+		$scope.progressList = JSON.parse(window.localStorage['progress'] || '{}');
+		$scope.characterID = window.localStorage['selectedCharacter'];
+	  }, 3000);
     
 	// Show / Hide headers based on existence of content in input
     $scope.searchFilter = {dragon_name : ""};
