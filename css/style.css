@@ -6,10 +6,19 @@ http {
 /* Redefining action sheet text colours for cross-compatability (white text otherwise in Android) */
 .action-sheet .button {
 	color: #007aff !important;
+	text-align: center !important;
+	font-weight: 200 !important;
 }
 
 .action-sheet-title {
 	color: #8f8f8f !important;
+	text-align: center;
+}
+
+.question {
+	width: 80% !important;
+	float: left;
+	margin-right: 10%;
 }
 
 .center {
@@ -382,8 +391,7 @@ progress::-webkit-progress-value {
 	font-size: 1.250em;
 	color: #fff;
 	padding: 18px 0px 18px 30px;
-	overflow: scroll !important;
-	overflow: visible !important;
+	overflow: auto !important;
 	white-space: normal !important;
 }
 

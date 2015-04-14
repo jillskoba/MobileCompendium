@@ -9,8 +9,8 @@
 		<ion-list>
 		<a href="#settingsFAQAnswer/{{contents.indexOf(content)}}" ng-repeat="content in contents" class="clearLink" >
 			<ion-item class="settingsItem" ng-class-odd="'odd'" ng-class-even="'even'">
-				{{content.faq_title}}
-				<i class="icon chevRight ion-chevron-right icon-accessory"></i>
+				<div class="question">{{content.faq_title}}</div>
+				<div class="questionChev"><i class="icon ion-chevron-right icon-accessory"></i></div>
 			</ion-item>
 			</a>
 		</ion-list>
