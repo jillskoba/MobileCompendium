@@ -57,11 +57,11 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Aqua'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
-		</div>
-		
+		</div<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Assault</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -79,11 +79,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Assault'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Dunestalker</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -101,11 +102,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Dunestalker'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Duskreaver</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -123,11 +125,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Duskreaver'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Eastern</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -145,11 +148,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Eastern'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Fabled Ancient</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -167,11 +171,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Fabled Ancient'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Hydra</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -189,11 +194,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Hydra'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Ironhide</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -211,11 +217,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Ironhide'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Mythical</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -233,11 +240,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Mythical'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Paragon</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -255,11 +263,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Paragon'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Phantom</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -277,11 +286,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Phantom'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Razorspine</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -299,11 +309,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Razorspine'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Skytouched</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -322,11 +333,11 @@
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Skytouched'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
 						ng-checked="item.bool"
-						ng-click="save()">
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Stalwart</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -344,11 +355,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Stalwart'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Swiftfoot</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -366,11 +378,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Swiftfoot'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item class="listHead" ng-style="showHide">Windrider</ion-item>
 		<div class="listMainLeft">
 		<ion-list>
@@ -388,11 +401,12 @@
 		<div class="listMainRight">
 			<ion-checkbox class="listCheck" ng-repeat="item in progressList | filter:{family_name:'Windrider'}:true | filter:{character_id:characterID} | filter:searchFilter" ng-class-odd="'odd'" ng-class-even="'even'"
 						ng-model="item.bool" 
-						ng-checked="item.bool">
+						ng-checked="item.bool"
+						ng-click="saveProgress({{item.dragon_id}})">
 			  <span class="invis">{{ item.bool }}</span>
 			</ion-checkbox>
 		</div>
-		
+		<div class="clear"></div>
 		<ion-item id="listBottom"></ion-item>
 		
 	</ion-content>
