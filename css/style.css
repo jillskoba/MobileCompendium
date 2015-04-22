@@ -531,3 +531,20 @@ progress::-webkit-progress-value {
 .list .item.item-accordion.ng-hide-remove {
   display: block !important;
 }
+
+
+
+@media screen and (max-width: 450px) {
+    .settingsItem {
+        padding: 12px 0px 12px 10px;
+		font-size: 1em;
+    }
+	
+	.listMainRight {
+		width: 14%;
+	}
+	
+	.listMainLeft {
+		width: 86%;
+	}
+}
